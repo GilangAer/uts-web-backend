@@ -16,6 +16,7 @@ var renderHome = fs.readFileSync("./pages/home.html")
 var renderCourses = fs.readFileSync("./pages/courses.html")
 var renderLogin = fs.readFileSync("./pages/login_form.html")
 var renderProfil = fs.readFileSync("./pages/profil.html")
+var renderDaftar = fs.readFileSync("./pages/pendaftaran.html")
 
 var server = http.createServer(function (request, response) {
     css(request, response);
@@ -26,6 +27,8 @@ var server = http.createServer(function (request, response) {
         response.write(renderCourses);
     } else if (request.url == '/login_form'){
         response.write(renderLogin);
+    } else if (request.url == '/pendaftaran') {
+        response.write(renderDaftar);
     }
     else if (request.url === "/login" && request.method === "GET") {
         fs.readFile("login_form.html", (error, data) => {
